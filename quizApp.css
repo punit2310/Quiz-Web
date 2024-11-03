@@ -1,0 +1,626 @@
+@font-face {
+  font-family: Rajdhani;
+  src: url(font/Rajdhani-Bold.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Rajdhani;
+  --fa-primary-color: #FFD43B;
+}
+
+body {
+  background-color: rgb(1, 1, 31);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor:url("assets/rocket.png"),auto;
+}
+
+header {
+  height: 15vmin;
+  width: 100%;
+  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.84),transparent);
+  font-size: 5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  color: aliceblue;
+  text-shadow: 0 0.7vmin 0 rgb(155, 155, 155);
+}
+
+.fa-meteor{
+  color: var(--fa-primary-color);
+  font-size: 5vmin;
+}
+
+.score{
+  background-color: #fff;
+  width: 15vmin;
+  height: 8vmin;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 3.5vmin;
+  right: 10vmin;
+  border-radius: 2.5vmin;
+}
+
+p {
+  font-size: 6vmin;
+  color: rgb(223, 231, 239);
+  margin-top: 3vmin;
+}
+
+.container {
+  height: 60vmin;
+  width: 100vmin;
+  background-color: rgba(0, 0, 0, 0.427);
+  backdrop-filter: blur(0.4vmin);
+  margin-top: 6vmin;
+  padding: 4vmin;
+  border-radius: 3vmin;
+  border: 0.3vmin solid aliceblue;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.questions{
+  min-height: 60vmin;
+  width: 100vmin;
+  background-color: rgba(0, 0, 0, 0.427);
+  backdrop-filter: blur(0.4vmin);
+  margin-top: 6vmin;
+  padding: 4vmin;
+  border-radius: 3vmin;
+  border: 0.3vmin solid aliceblue;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.layout, .thematic-layout {
+  margin-top: 3vmin;
+  margin-left: 2vmin;
+}
+
+.layout{
+  display: grid;
+  grid-row: 1;
+  gap: 2vmin;
+}
+
+.thematic-layout{
+  display: grid;
+  grid-template-rows: repeat(1,1fr);
+  grid-template-columns: repeat(2,1fr);
+  gap: 2vmin;
+}
+
+.chalenge1,.chalenge2,.chalenge3{
+  color: aliceblue;
+  padding: 3vmin;
+  border-radius: 3vmin;
+  border: 0.4vmin solid aliceblue;
+  display: flex;
+  align-items: center;
+}
+
+.chalenge1 {
+  background-image: url(https://tse2.mm.bing.net/th?id=OIG2.c9gxmIJVHN9OqDCdV7.R&pid=ImgGn);
+  background-position-x: 0;
+  background-position-y: -10vmin;
+  background-size: 77vmin;
+  background-repeat: no-repeat;
+  height: 25vmin;
+  width: 70vmin;
+}
+
+.mixed,.historical,.entertainment{
+  background-color: rgba(0, 0, 0, 0.42);
+  padding: 4vmin;
+  border-radius: 2vmin;
+  backdrop-filter: blur(0.3vmin);
+  font-size: 3vmin;
+  text-shadow: 0 0 2vmin black;
+  display: flex;
+  flex-direction: column;
+  gap: 2vmin;
+}
+
+.mixed {
+  width: 42vmin;
+  height: 14vmin;
+}
+
+.chalenge2 {
+  background-image: url(https://tse1.mm.bing.net/th?id=OIG2.RYBX_ETvpN1096iGmUVz&pid=ImgGn);
+  background-size: 65vmin;
+  background-repeat: no-repeat;
+  height: 23vmin;
+  width: 40vmin;
+  grid-column: 1/2;
+}
+
+.historical {
+  width: 30vmin;
+  gap: 1vmin;
+  padding: 2vmin;
+}
+
+.chalenge3{
+  background-image: url(https://tse2.mm.bing.net/th?id=OIG2.0HpaBDZPwB.uO8lR84_k&pid=ImgGn);
+  background-size: 65vmin;
+  background-position-x: -5vmin;
+  background-position-y: -10vmin;
+  background-repeat: no-repeat;
+  height: 23vmin;
+  width: 40vmin;
+  grid-column: 2/2;
+}
+
+.entertainment {
+  width: 30vmin;
+  gap: 1vmin;
+  padding: 2vmin;
+}
+
+.start {
+  height: 6vmin;
+  width: 16vmin;
+  border-radius: 2vmin;
+  border: 0.3vmin solid black;
+  background-color: aliceblue;
+  transition: all 300ms ease-in-out;
+  cursor: url("assets/cursor.png"),auto;
+}
+
+.start:hover {
+  border: 0.3vmin solid aliceblue;
+  background-color: black;
+  color: aliceblue;
+}
+
+.start:active {
+  border: 0.3vmin solid black;
+  background-color: aliceblue;
+  color: black;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fa-regular {
+  color: #ffd43b;
+  margin-bottom: 5vmin;
+  cursor: url('assets/cursor.png'),auto;
+}
+
+.tracker {
+  background-color: rgba(78, 78, 78, 0.685);
+  width: 100%;
+  height: 2vmin;
+  border-radius: 1vmin;
+  border: 0.2vmin solid aliceblue;
+  display: flex;
+  align-items: center;
+  padding-inline: 0.2vmin;
+}
+
+.fill {
+  background-image: linear-gradient(to left,#f54de9,#f32);
+  height: 1.5vmin;
+  width: 1%;
+  border-radius: 0.9vmin;
+  transition: all 300ms ease-in-out;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1vmin;
+  width: 100%;
+}
+
+.totalComlite{
+  text-align: center;
+}
+
+.count{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2vmin;
+  font-size: 4vmin;
+  color: aliceblue;
+}
+
+.question{
+  background-color: rgba(61, 61, 61, 0.55);
+  padding: 2vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95vmin;
+  border-radius: 3vmin;
+  border: 0.4vmin solid aliceblue;
+  box-shadow: inset 0 0 2vmin aliceblue;
+}
+
+.ques{
+  font-size: 4vmin;
+  margin: 0;
+}
+
+.options{
+  height: auto;
+  width: 100%;
+  margin-top: 3vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3vmin;
+  overflow: auto;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8vmin;
+  column-gap: 5vmin;
+  justify-content: center;
+  align-items: center;
+}
+
+li{
+  height: auto;
+  width: 40vmin;
+  background-color: #2c2c2c;
+  color: aliceblue;
+  border-radius: 2vmin;
+  border: 0.3vmin solid aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5vmin;
+  box-shadow: inset 0 0 2vmin aliceblue;
+  cursor: url('assets/cursor.png'),auto;
+  transition: all 300ms ease-in-out;
+}
+
+li:hover{
+  box-shadow: inset 0 0 10vmin rgb(0, 47, 117);
+}
+
+.next{
+  height: 7vmin;
+  width: 20vmin;
+  position: absolute;
+  right: 10vmin;
+  bottom: 5vmin;
+  font-size: 4vmin;
+  cursor: url('assets/cursor.png'),auto;
+  overflow: auto;
+  border-radius: 2vmin;
+  border: 0.4vmin solid black;
+  transition: all 300ms ease-in-out;
+}
+
+.next:hover {
+  border: 0.3vmin solid aliceblue;
+  background-color: black;
+  color: aliceblue;
+}
+
+.next:active {
+  border: 0.3vmin solid black;
+  background-color: aliceblue;
+  color: black;
+}
+
+.sub{
+  height: 7vmin;
+  width: 20vmin;
+  position: absolute;
+  left: 10vmin;
+  bottom: 5vmin;
+  font-size: 4vmin;
+  cursor: url('assets/cursor.png'),auto;
+  overflow: auto;
+  border-radius: 2vmin;
+  border: 0.4vmin solid black;
+  transition: all 300ms ease-in-out;
+}
+
+.sub:hover {
+  border: 0.3vmin solid aliceblue;
+  background-color: black;
+  color: aliceblue;
+}
+
+.sub:active {
+  border: 0.3vmin solid black;
+  background-color: aliceblue;
+  color: black;
+}
+
+.scoreBoard{
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.324);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 100vmin;
+}
+
+.scoreContainer{
+  height: 40vmin;
+  width: 60vmin;
+  background-color: aliceblue;
+  border-radius: 3vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+}
+
+.totalScore{
+  width: 15vmin;
+  height: 7vmin;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.totalScore p{
+  margin-top: 0.5vmin;
+  color: black;
+}
+
+.exit{
+  height: 7vmin;
+  width: 13vmin;
+  border-radius: 2vmin;
+  border: 0.3vmin solid aliceblue;
+  background-color: #2c2c2c;
+  color: aliceblue;
+  transition: all 300ms ease-in-out;
+}
+
+.exit:hover{
+  border: 0.3vmin solid black;
+  background-color: aliceblue;
+  color: black;
+}
+
+.exit:active{
+  border: 0.3vmin solid aliceblue;
+  background-color: black;
+  color: aliceblue;
+}
+
+.exitInfoContainer{
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.324);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 100vmin;
+}
+
+.exitInfo{
+  height: 40vmin;
+  width: 60vmin;
+  background-color: aliceblue;
+  border-radius: 3vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.buttons{
+  height: 10vmin;
+  width: 20vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vmin;
+}
+
+.resume,.exits{
+  height: 7vmin;
+  width: 10vmin;
+  border: 0.3vmin solid black;
+  background-color: aliceblue;
+  color: black;
+  border-radius: 2vmin;
+  transition: all 300ms ease-in-out;
+  font-size: 4vmin;
+  cursor: url('assets/cursor.png'),auto;
+}
+
+.resume:hover,.exits:hover{
+  border: 0.3vmin solid aliceblue;
+  background-color: black;
+  color: aliceblue;
+}
+
+.resume:active,.exits:active{
+  border: 0.3vmin solid black;
+  background-color: aliceblue;
+  color: black;
+}
+
+.BoardAnimation{
+  animation: boardEntry 350ms ease-in-out forwards;
+}
+
+.message{
+  width: 30vmin;
+  padding: 1vmin;
+  background-color: rgb(255, 87, 87);
+  position: absolute;
+  top: -15vmin;
+  font-size: 4vmin;
+  cursor: url('assets/cursor.png'),auto;
+  overflow: auto;
+  border-radius: 2vmin;
+  border: 0.4vmin solid black;
+  transition: all 300ms ease-in-out;
+  color: black;
+  text-align: center;
+}
+
+.alertAnimtion{
+  animation: alert 400ms ease-in-out forwards;
+}
+
+.alertAnimtionExit{
+  animation: alertExit 400ms ease-in-out forwards;
+}
+
+@keyframes alert {
+  form{
+    top: -15vmin;
+  }
+  to{
+    top:15vmin;
+  }
+}
+
+@keyframes alertExit {
+  form{
+    width: 30vmin;
+  }
+  to{
+    width:0;
+  }
+}
+
+@keyframes boardEntry {
+  from{
+    top: 100vmin;
+    width: 0;
+    height: 0;
+  }to{
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.BoardAnimationExit{
+  animation: boardExit 350ms ease-in-out forwards;
+}
+
+@keyframes boardExit {
+  from{
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }to{
+    top: 150vmin;
+    width: 0;
+    height: 0;
+  }
+}
+
+.animationEntry{
+  animation: entry 300ms ease-in-out forwards;
+}
+
+@keyframes entry {
+  from{
+    width: 0;
+  }
+  to{
+    width: 100vmin;
+  }
+}
+
+.animationExit{
+  animation: exit 300ms ease-in-out forwards;
+}
+
+@keyframes exit {
+  from{
+    width: 100vmin;
+  }
+  to{
+    width: 0;
+  }
+}
+
+.buttonEntry{
+  animation: buttonEntry 300ms ease-in-out forwards;
+}
+
+@keyframes buttonEntry {
+  from{
+    width: 0;
+  }
+  to{
+    width: 20vmin;
+  }
+}
+
+.buttonExit{
+  animation: buttonExit 300ms ease-in-out forwards 1;
+}
+
+@keyframes buttonExit {
+  from{
+    width: 20vmin;
+  }
+  to{
+    width: 0;
+  }
+}
+
+.loader{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(44, 44, 44, 0.475);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#canvas{
+  height: 200px;
+  width: 200px;
+}
+
+.hidden {
+  display: none;
+}
+
+.fa-star{
+  position:absolute;
+  z-index:-10;
+  margin:2vmin;
+}

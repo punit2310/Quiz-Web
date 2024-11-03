@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="this is a quiz app on webPage" />
+    <title>Spacey quiz:- Explore the Cosmos of Knowledge!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="quizApp.css" />
+  </head>
+  <body>
+    <div class="loader hidden">
+      <canvas id="canvas"></canvas>
+    </div>
+    <header>
+      <div class="titleDiv">
+        <h1 class="title">Spacey quiz</h1>
+      </div>
+      <div class="score">
+        <i class="fa-duotone fa-solid fa-meteor"></i>
+        <div class="value">0</div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="home">
+        <p>Daily Chalenge's</p>
+        <div class="layout">
+          <div class="chalenge1">
+            <div class="mixed">
+              <h2>Daily Quiz Chalenge</h2>
+              <button class="start" aria-label="starting the quiz">Let's GO!</button>
+            </div>
+          </div>
+        </div>
+        <p>Thimatic Quizzes</p>
+        <div class="thematic-layout">
+          <div class="chalenge2">
+            <div class="historical">
+              <h2>Historical Chalenge</h2>
+              <button class="start" aria-label="starting the quiz">Start the quiz!</button>
+            </div>
+          </div>
+          <div class="chalenge3">
+            <div class="entertainment">
+              <h2>Entertainment Chalenge</h2>
+              <button class="start" aria-label="starting the quiz">Start the quiz!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="questions hidden">
+      <div class="header">
+        <i class="fa-regular fa-circle-xmark fa-xl"></i>
+        <div class="tracker">
+          <div class="fill"></div>
+        </div>
+        <div class="totalComlite">
+          <div class="count">
+            <h3 class="comlited"></h3>
+            <h3 class="outOf"></h3>
+          </div>
+        </div>
+      </div>
+      <div class="question">
+        <p class="ques"></p>
+      </div>
+      <div class="options">
+        <ul></ul>
+      </div>
+    </div>
+    <button class="next hidden" aria-label="take next question">
+      NEXT <i class="fa-solid fa-caret-right"></i>
+    </button>
+    <button class="sub hidden" aria-label="submit the result">SUBMIT</button>
+    <div class="scoreBoard hidden">
+      <div class="scoreContainer">
+        <h1>You got</h1>
+        <div class="totalScore">
+          <i class="fa-duotone fa-solid fa-meteor"></i>
+          <p class="point"></p>
+        </div>
+        <button class="exit" aria-label="exit the quiz">EXIT</button>
+      </div>
+    </div>
+    <div class="exitInfoContainer hidden">
+      <div class="exitInfo">
+        <h1>DO YOU WANT</h1>
+        <div class="buttons">
+          <button class="resume" aria-label="resume the quiz"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+          <button class="exits" aria-label="exit the quiz"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="message hidden">
+    </div>
+    <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
+    <script src="quizApp.js"></script>
+  </body>
+</html>
