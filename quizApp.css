@@ -226,7 +226,7 @@ p {
   transition: all 300ms ease-in-out;
 }
 
-.header{
+.progress{
   display: flex;
   flex-direction: column;
   margin-top: 1vmin;
