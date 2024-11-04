@@ -8,10 +8,19 @@
 -**Dynamic Question Loading**: Fetches multiple-choice questions from the Open Trivia Database API.<br>
 -**Progress Tracking**: Visual progress bar increases with each question.<br>
 -**Scoring System**: Tracks your score for each session and saves cumulative score using local storage.<br>
+-**Animations**: Rive animations for loading screens and smooth transition between screens.
+-**Category Selection**: Choose from multiple quiz categories such as Daily Chalenge,Historical and Entertainment.<br>
+-**Dynamic Question Loading**: Fetches multiple-choice questions from the Open Trivia Database API.<br>
+-**Progress Tracking**: Visual progress bar increases with each question.<br>
+-**Scoring System**: Tracks your score for each session and saves cumulative score using local storage.<br>
 -**Animations**: Rive animations for loading screens and smooth transition between screens.<br>
 
 ## Technologies Used
 
+-**HTML, CSS, JavaScript**: Core structure, styling and logic.<br>
+-**Rive Animation**: For engaging loading animations.<br>
+-**Open Trivis Database API**: To fetch quiz questions.<br>
+-**Local Storage**: To save and retrieve cumulative scores.<br>
 -**HTML, CSS, JavaScript**: Core structure, styling and logic.<br>
 -**Rive Animation**: For engaging loading animations.<br>
 -**Open Trivis Database API**: To fetch quiz questions.<br>
@@ -31,15 +40,24 @@ cd Quiz-Web
 1. **Select a Category**: Click on one of the category buttons to begin.<br>
 2. **Answer Questions**: Choose the correct answer from the options.<br>
 3. **Track Progress**: Use the progress bar to see your completion rate.<br>
+1. **Select a Category**: Click on one of the category buttons to begin.<br>
+2. **Answer Questions**: Choose the correct answer from the options.<br>
+3. **Track Progress**: Use the progress bar to see your completion rate.<br>
 4. **View Your Score**: At the end of the quiz, view your total score and see your cumulative score from previous sections.
 
 ## Future Improvements
 
+- Enhanced Accessibility: Improve screen reader compatibility.<br>
+- Additional Categories: Add more quiize categories and question types.<br>
+- Timed Mode: Introduce a time-based quiz option for added challenge.
 - Enhanced Accessibility: Improve scrren reader compatibility.<br>
 - Additional Categories: Add more quiize categories and question types.<br>
 - Timed Mode: Introduce a time-based quiz option for added challenge.<br>
 
 ## Credits
+- Open Trivia Database: Provides the question data for the quiz.<br>
+- Rive Animation: for the interactive loading screen.<br>
+- Icons from Font Awesome for additional UL elements.
 - Open Trivia Database: Provides the question data for the quiz.<br>
 - Rive Animation: for the interactive loading screen.<br>
 - Icons from Font Awesome for additional UL elements.<br>
