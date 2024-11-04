@@ -35,7 +35,7 @@ cd Quiz-Web
 
 ## Future Improvements
 
-- Enhanced Accessibility: Improve scrren reader compatibility.<br>
+- Enhanced Accessibility: Improve screen reader compatibility.<br>
 - Additional Categories: Add more quiize categories and question types.<br>
 - Timed Mode: Introduce a time-based quiz option for added challenge.
 
