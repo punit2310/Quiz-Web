@@ -228,6 +228,7 @@ const exit = (messageContainer) => {
     document.querySelector(".sub").classList.add("hidden");
     document.querySelector(messageContainer).classList.add("hidden");
   }, 300);
+  resetQuiz();
 };
 
 document.querySelector(".exitInfoContainer").addEventListener("click", (e) => {
