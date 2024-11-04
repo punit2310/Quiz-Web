@@ -25,6 +25,19 @@ const alertMessage = (message) => {
   document.querySelector(".message").textContent = message;
 };
 
+const loader = (isLoading) => {
+  document.querySelector(".loader").classList.remove("hidden");
+  const r = new rive.Rive({
+    src: "assets/loader.riv",
+    canvas: document.getElementById("canvas"),
+    autoplay: isLoading,
+    stateMachines: "rocket in movement",
+    onload: () => {
+      r.resizeDrawingSurfaceToCanvas();
+    },
+  });
+};
+
 async function questionAPI() {
   try {
     isLoading = true;
@@ -105,6 +118,19 @@ homeContainer.addEventListener("click", (e) => {
   }
 });
 
+//this function for icrease the width of .fill.
+const widthProgress = () => {
+  let bar = document.querySelector(".fill");
+  bar.style.width = `${increaseWidth}%`;
+};
+
+//this function is calling a widthProgress function and increaseProgress increase by 100/amount
+const increaseProgress = () => {
+  increaseWidth += 100 / amount;
+  widthProgress();
+  console.log(increaseWidth);
+};
+
 //next button
 document.querySelector(".next").addEventListener("click", () => {
   if (optionClick) {
@@ -135,19 +161,6 @@ const disableOptions = () => {
   options.forEach((option) => {
     option.style.pointerEvents = "none";
   });
-};
-
-//this function is calling a widthProgress function and increaseProgress increase by 6.666666666666667.
-const increaseProgress = () => {
-  increaseWidth += 100 / amount;
-  widthProgress();
-  console.log(increaseWidth);
-};
-
-//this function for icrease the width of .fill.
-const widthProgress = () => {
-  let bar = document.querySelector(".fill");
-  bar.style.width = `${increaseWidth}%`;
 };
 
 let score = 0;
@@ -190,6 +203,18 @@ questionsContainer.addEventListener("click", (e) => {
   }
 });
 
+const resetQuiz = () => {
+  count = 0;
+  index = "";
+  increaseWidth = 1;
+  widthProgress();
+  document.querySelector(".next").disabled = false;
+  document.querySelector(".score").style.opacity = 1;
+  score = 0;
+  isAPI = true;
+  questionsList.splice(0, questionsList.length);
+};
+
 const exit = (messageContainer) => {
   questionsContainer.classList.remove("animationEntry");
   questionsContainer.classList.add("animationExit");
@@ -203,18 +228,7 @@ const exit = (messageContainer) => {
     document.querySelector(".sub").classList.add("hidden");
     document.querySelector(messageContainer).classList.add("hidden");
   }, 300);
-};
-
-const resetQuiz = () => {
-  count = 0;
-  index = "";
-  increaseWidth = 1;
-  widthProgress();
-  document.querySelector(".next").disabled = false;
-  document.querySelector(".score").style.opacity = 1;
-  score = 0;
-  isAPI = true;
-  questionsList.splice(0, questionsList.length);
+  resetQuiz();
 };
 
 document.querySelector(".exitInfoContainer").addEventListener("click", (e) => {
@@ -242,7 +256,6 @@ document.querySelector(".exitInfoContainer").addEventListener("click", (e) => {
       .querySelector(".exitInfoContainer")
       .classList.remove("BoardAnimation");
     exit(".exitInfoContainer");
-    resetQuiz();
   }
 });
 
@@ -269,7 +282,6 @@ document.querySelector(".scoreBoard").addEventListener("click", (e) => {
     totalScore = String(totalScore);
     localStorage.setItem("score", JSON.stringify(totalScore));
     document.querySelector(".value").textContent = totalScore;
-    resetQuiz();
   }
 });
 
@@ -307,16 +319,3 @@ const createRandomStar = () => {
 for (let i = 0; i < 70; i++) {
   createRandomStar();
 }
-
-const loader = (isLoading) => {
-  document.querySelector(".loader").classList.remove("hidden");
-  const r = new rive.Rive({
-    src: "assets/loader.riv",
-    canvas: document.getElementById("canvas"),
-    autoplay: isLoading,
-    stateMachines: "rocket in movement",
-    onload: () => {
-      r.resizeDrawingSurfaceToCanvas();
-    },
-  });
-};
