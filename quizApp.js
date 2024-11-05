@@ -316,6 +316,6 @@ const createRandomStar = () => {
   document.body.appendChild(star);
 };
 
-for (let i = 0; i < 70; i++) {
+for (let i = 0; i < 40; i++) {
   createRandomStar();
 }
