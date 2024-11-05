@@ -15,7 +15,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor:url("assets/rocket.png"),auto;
 }
 
 header {
@@ -180,7 +179,7 @@ p {
   border: 0.3vmin solid black;
   background-color: aliceblue;
   transition: all 300ms ease-in-out;
-  cursor: url("assets/cursor.png"),auto;
+  cursor: pointer;
 }
 
 .start:hover {
@@ -204,7 +203,7 @@ p {
 .fa-regular {
   color: #ffd43b;
   margin-bottom: 5vmin;
-  cursor: url('assets/cursor.png'),auto;
+  cursor: pointer;
 }
 
 .tracker {
@@ -297,7 +296,7 @@ li{
   justify-content: center;
   padding: 1.5vmin;
   box-shadow: inset 0 0 2vmin aliceblue;
-  cursor: url('assets/cursor.png'),auto;
+  cursor: pointer;
   transition: all 300ms ease-in-out;
 }
 
@@ -312,7 +311,7 @@ li:hover{
   right: 10vmin;
   bottom: 5vmin;
   font-size: 4vmin;
-  cursor: url('assets/cursor.png'),auto;
+  cursor: pointer;
   overflow: auto;
   border-radius: 2vmin;
   border: 0.4vmin solid black;
@@ -338,7 +337,7 @@ li:hover{
   left: 10vmin;
   bottom: 5vmin;
   font-size: 4vmin;
-  cursor: url('assets/cursor.png'),auto;
+  cursor: pointer;
   overflow: auto;
   border-radius: 2vmin;
   border: 0.4vmin solid black;
@@ -456,7 +455,7 @@ li:hover{
   border-radius: 2vmin;
   transition: all 300ms ease-in-out;
   font-size: 4vmin;
-  cursor: url('assets/cursor.png'),auto;
+  cursor: pointer;
 }
 
 .resume:hover,.exits:hover{
@@ -482,7 +481,7 @@ li:hover{
   position: absolute;
   top: -15vmin;
   font-size: 4vmin;
-  cursor: url('assets/cursor.png'),auto;
+  cursor: pointer;
   overflow: auto;
   border-radius: 2vmin;
   border: 0.4vmin solid black;
