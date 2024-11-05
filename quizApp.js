@@ -128,7 +128,6 @@ const widthProgress = () => {
 const increaseProgress = () => {
   increaseWidth += 100 / amount;
   widthProgress();
-  console.log(increaseWidth);
 };
 
 //next button
@@ -140,7 +139,8 @@ document.querySelector(".next").addEventListener("click", () => {
       if (count === len - 1) {
         document.querySelector(".sub").classList.remove("hidden");
         document.querySelector(".sub").classList.add("buttonEntry");
-        document.querySelector(".next").disabled = true;
+        document.querySelector(".next").style.pointerEvents="none";
+        document.querySelector(".next").style.opacity=0.5;
       }
     }
     //increase progress
@@ -204,15 +204,17 @@ questionsContainer.addEventListener("click", (e) => {
 });
 
 const resetQuiz = () => {
+  optionClick=false;
   count = 0;
   index = "";
   increaseWidth = 1;
   widthProgress();
-  document.querySelector(".next").disabled = false;
   document.querySelector(".score").style.opacity = 1;
   score = 0;
   isAPI = true;
   questionsList.splice(0, questionsList.length);
+  document.querySelector(".next").style.pointerEvents="auto";
+  document.querySelector(".next").style.opacity=1;
 };
 
 const exit = (messageContainer) => {
@@ -228,7 +230,6 @@ const exit = (messageContainer) => {
     document.querySelector(".sub").classList.add("hidden");
     document.querySelector(messageContainer).classList.add("hidden");
   }, 300);
-  resetQuiz();
 };
 
 document.querySelector(".exitInfoContainer").addEventListener("click", (e) => {
@@ -256,6 +257,7 @@ document.querySelector(".exitInfoContainer").addEventListener("click", (e) => {
       .querySelector(".exitInfoContainer")
       .classList.remove("BoardAnimation");
     exit(".exitInfoContainer");
+    resetQuiz();
   }
 });
 
@@ -282,6 +284,7 @@ document.querySelector(".scoreBoard").addEventListener("click", (e) => {
     totalScore = String(totalScore);
     localStorage.setItem("score", JSON.stringify(totalScore));
     document.querySelector(".value").textContent = totalScore;
+    resetQuiz();
   }
 });
 
