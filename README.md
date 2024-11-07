@@ -8,13 +8,8 @@
 - **Dynamic Question Loading**: Fetches multiple-choice questions from the Open Trivia Database API.<br>
 - **Progress Tracking**: Visual progress bar increases with each question.<br>
 - **Scoring System**: Tracks your score for each session and saves cumulative score using local storage.<br>
-- **Animations**: Rive animations for loading screens and smooth transition between screens.
-- **Category Selection**: Choose from multiple quiz categories such as Daily Chalenge,Historical and Entertainment.<br>
-- **Dynamic Question Loading**: Fetches multiple-choice questions from the Open Trivia Database API.<br>
-- **Progress Tracking**: Visual progress bar increases with each question.<br>
-- **Scoring System**: Tracks your score for each session and saves cumulative score using local storage.<br>
 - **History Tracking System**: That records details about each quiz a user attempts. It captures essential data points such as Quiz title, Date and Score.
-- **Animations**: Rive animations for loading screens and smooth transition between screens.<br>
+- **Animations**: Rive animations for loading screens and smooth transition between screens.
 
 ## Technologies Used
 
@@ -34,9 +29,6 @@ cd Quiz-Web
 
 ## How to Play
 
-1. **Select a Category**: Click on one of the category buttons to begin.<br>
-2. **Answer Questions**: Choose the correct answer from the options.<br>
-3. **Track Progress**: Use the progress bar to see your completion rate.<br>
 1. **Select a Category**: Click on one of the category buttons to begin.<br>
 2. **Answer Questions**: Choose the correct answer from the options.<br>
 3. **Track Progress**: Use the progress bar to see your completion rate.<br>
