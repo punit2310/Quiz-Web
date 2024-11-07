@@ -4,27 +4,24 @@
 
 ## Features
 
--**Category Selection**: Choose from multiple quiz categories such as Daily Chalenge,Historical and Entertainment.<br>
--**Dynamic Question Loading**: Fetches multiple-choice questions from the Open Trivia Database API.<br>
--**Progress Tracking**: Visual progress bar increases with each question.<br>
--**Scoring System**: Tracks your score for each session and saves cumulative score using local storage.<br>
--**Animations**: Rive animations for loading screens and smooth transition between screens.
--**Category Selection**: Choose from multiple quiz categories such as Daily Chalenge,Historical and Entertainment.<br>
--**Dynamic Question Loading**: Fetches multiple-choice questions from the Open Trivia Database API.<br>
--**Progress Tracking**: Visual progress bar increases with each question.<br>
--**Scoring System**: Tracks your score for each session and saves cumulative score using local storage.<br>
--**Animations**: Rive animations for loading screens and smooth transition between screens.<br>
+- **Category Selection**: Choose from multiple quiz categories such as Daily Chalenge,Historical and Entertainment.<br>
+- **Dynamic Question Loading**: Fetches multiple-choice questions from the Open Trivia Database API.<br>
+- **Progress Tracking**: Visual progress bar increases with each question.<br>
+- **Scoring System**: Tracks your score for each session and saves cumulative score using local storage.<br>
+- **Animations**: Rive animations for loading screens and smooth transition between screens.
+- **Category Selection**: Choose from multiple quiz categories such as Daily Chalenge,Historical and Entertainment.<br>
+- **Dynamic Question Loading**: Fetches multiple-choice questions from the Open Trivia Database API.<br>
+- **Progress Tracking**: Visual progress bar increases with each question.<br>
+- **Scoring System**: Tracks your score for each session and saves cumulative score using local storage.<br>
+- **History Tracking System**: That records details about each quiz a user attempts. It captures essential data points such as Quiz title, Date and Score.
+- **Animations**: Rive animations for loading screens and smooth transition between screens.<br>
 
 ## Technologies Used
 
--**HTML, CSS, JavaScript**: Core structure, styling and logic.<br>
--**Rive Animation**: For engaging loading animations.<br>
--**Open Trivis Database API**: To fetch quiz questions.<br>
--**Local Storage**: To save and retrieve cumulative scores.<br>
--**HTML, CSS, JavaScript**: Core structure, styling and logic.<br>
--**Rive Animation**: For engaging loading animations.<br>
--**Open Trivis Database API**: To fetch quiz questions.<br>
--**Local Storage**: To save and retrieve cumulative scores.<br>
+- **HTML, CSS, JavaScript**: Core structure, styling and logic.<br>
+- **Rive Animation**: For engaging loading animations.<br>
+- **Open Trivis Database API**: To fetch quiz questions.<br>
+- **Local Storage**: To save and retrieve cumulative scores and history.<br>
 
 ## Setup Instructions
 
@@ -58,6 +55,3 @@ cd Quiz-Web
 - Open Trivia Database: Provides the question data for the quiz.<br>
 - Rive Animation: for the interactive loading screen.<br>
 - Icons from Font Awesome for additional UL elements.
-- Open Trivia Database: Provides the question data for the quiz.<br>
-- Rive Animation: for the interactive loading screen.<br>
-- Icons from Font Awesome for additional UL elements.<br>
