@@ -47,9 +47,6 @@ cd Quiz-Web
 - Enhanced Accessibility: Improve screen reader compatibility.<br>
 - Additional Categories: Add more quiize categories and question types.<br>
 - Timed Mode: Introduce a time-based quiz option for added challenge.
-- Enhanced Accessibility: Improve scrren reader compatibility.<br>
-- Additional Categories: Add more quiize categories and question types.<br>
-- Timed Mode: Introduce a time-based quiz option for added challenge.<br>
 
 ## Credits
 - Open Trivia Database: Provides the question data for the quiz.<br>
