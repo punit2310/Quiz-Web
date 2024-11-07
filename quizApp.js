@@ -1,5 +1,5 @@
 const questionsList = [];
-const amount = 15;
+const amount = 5;
 let category = 0;
 const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&type=multiple`;
 let count = 0;
@@ -105,14 +105,15 @@ const questionCategory = {
 };
 
 const listOfClass = ["mixed", "historical", "entertainment"];
-let headline="";
+let headline = "";
 
 homeContainer.addEventListener("click", (e) => {
   let parent = e.target.parentNode;
   let parentClass = parent.classList[0];
   if (listOfClass.includes(parentClass)) {
-    let titel= String(parentClass);
-    headline=titel.toUpperCase();
+    let titel = String(parentClass);
+    headline = titel.toUpperCase();
+    localStorage.setItem("title", headline);
     if (count < amount - 1) {
       category = questionCategory[parentClass];
       getQuestions();
@@ -279,37 +280,38 @@ document.querySelector(".sub").addEventListener("click", () => {
   }
 });
 
-const getDate=()=>{
-  let currentDate=new Date();
-  let date=currentDate.getDate();
-  let month=currentDate.getMonth()+1;
-  let year=currentDate.getFullYear();
-  let today=`${date}-${month}-${year}`;
+const getDate = () => {
+  let currentDate = new Date();
+  let date = currentDate.getDate();
+  let month = currentDate.getMonth() + 1;
+  let year = currentDate.getFullYear();
+  let today = `${date}-${month}-${year}`;
   return today;
-}
+};
 
-const addHistory=(heading, correctCount,today)=>{
-  const hist=document.createElement('div');
+const addHistory = (heading, correctCount, today) => {
+  const hist = document.createElement("div");
   hist.classList.add("hist");
-  hist.textContent=heading;
-  const date=document.createElement('h3');
-  date.textContent=today;
-  const point=document.createElement('div');
-  point.classList.add('gainScore');
-  point.textContent=`+${correctCount}`;
+  hist.textContent = heading;
+  const date = document.createElement("h3");
+  date.textContent = today;
+  const point = document.createElement("div");
+  point.classList.add("gainScore");
+  point.textContent = `+${correctCount}`;
   hist.appendChild(date);
   hist.appendChild(point);
-  document.querySelector('.scroll').textContent='';
-  document.querySelector('.scroll').appendChild(hist);
-}
+  document.querySelector(".scroll").append(hist);
+};
 
-const saveHist=(heading,correctCount)=>{
-  let history=JSON.parse(localStorage.getItem('setHist'))||[];
-  const newEntry={
-    heading,correctCount,date:getDate()
+const saveHist = (heading, correctCount) => {
+  let history = JSON.parse(localStorage.getItem("setHis")) || [];
+  const newEntry = {
+    heading,
+    correctCount,
+    date: getDate(),
   };
   history.push(newEntry);
-  localStorage.setItem('setHist',JSON.stringify(history));
+  localStorage.setItem("setHis", JSON.stringify(history));
 };
 
 document.querySelector(".scoreBoard").addEventListener("click", (e) => {
@@ -319,18 +321,21 @@ document.querySelector(".scoreBoard").addEventListener("click", (e) => {
     let totalScore = Number(document.querySelector(".value").textContent);
     totalScore += score;
     totalScore = String(totalScore);
-    localStorage.setItem("point", JSON.stringify(totalScore));
+    localStorage.setItem("figure", JSON.stringify(totalScore));
     document.querySelector(".value").textContent = totalScore;
-    saveHist(headline,score);
-    exit(".scoreBoard");
+    let heading = localStorage.getItem("title");
+    saveHist(heading, score);
     window.location.reload();
+    exit(".scoreBoard");
   }
 });
 
 window.addEventListener("load", () => {
-  let totalScores = JSON.parse(localStorage.getItem("point")) || 0;
-  let history = JSON.parse(localStorage.getItem("setHist")) || [];
-  history.forEach(entry => addHistory(entry.heading, entry.correctCount, entry.date));
+  let totalScores = JSON.parse(localStorage.getItem("figure")) || 0;
+  let history = JSON.parse(localStorage.getItem("setHis")) || [];
+  history.forEach((entry) =>
+    addHistory(entry.heading, entry.correctCount, entry.date)
+  );
   document.querySelector(".value").textContent = totalScores;
   isAPI = true;
   if (questionsList.length > 0) {
