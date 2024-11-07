@@ -19,6 +19,11 @@
       <canvas id="canvas"></canvas>
     </div>
     <header>
+      <div class="score-hist">
+        <button aria-label="Score History">
+          <i class="fa-solid fa-clock-rotate-left"></i> History
+        </button>
+      </div>
       <div class="titleDiv">
         <h1 class="title">Spacey quiz</h1>
       </div>
@@ -33,8 +38,10 @@
         <div class="layout">
           <div class="chalenge1">
             <div class="mixed">
-              <h2>Daily Quiz Chalenge</h2>
-              <button class="start" aria-label="starting the quiz">Let's GO!</button>
+              <h2>Mixed Quiz Chalenge</h2>
+              <button class="start" aria-label="starting the quiz">
+                Let's GO!
+              </button>
             </div>
           </div>
         </div>
@@ -43,13 +50,17 @@
           <div class="chalenge2">
             <div class="historical">
               <h2>Historical Chalenge</h2>
-              <button class="start" aria-label="starting the quiz">Start the quiz!</button>
+              <button class="start" aria-label="starting the quiz">
+                Start quiz!
+              </button>
             </div>
           </div>
           <div class="chalenge3">
             <div class="entertainment">
               <h2>Entertainment Chalenge</h2>
-              <button class="start" aria-label="starting the quiz">Start the quiz!</button>
+              <button class="start" aria-label="starting the quiz">
+                Start quiz!
+              </button>
             </div>
           </div>
         </div>
@@ -93,12 +104,25 @@
       <div class="exitInfo">
         <h1>DO YOU WANT</h1>
         <div class="buttons">
-          <button class="resume" aria-label="resume the quiz"><i class="fa-solid fa-arrow-rotate-right"></i></button>
-          <button class="exits" aria-label="exit the quiz"><i class="fa-solid fa-xmark"></i></button>
+          <button class="resume" aria-label="resume the quiz">
+            <i class="fa-solid fa-arrow-rotate-right"></i>
+          </button>
+          <button class="exits" aria-label="exit the quiz">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
       </div>
     </div>
-    <div class="message hidden">
+    <div class="message hidden"></div>
+
+    <div class="histContainer hidden">
+      <h1>History</h1>
+      <button class="exit-hist">EXIT</button>
+      <div class="history">
+        <div class="scroll">
+          Empty...
+        </div>
+      </div>
     </div>
     <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
     <script src="quizApp.js"></script>

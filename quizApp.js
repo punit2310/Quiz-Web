@@ -95,6 +95,7 @@ const getQuestions = async () => {
     document.querySelector(".next").classList.add("buttonEntry");
   }, 300);
   document.querySelector(".score").style.opacity = 0;
+  document.querySelector(".score-hist").style.opacity = 0;
 };
 
 const questionCategory = {
@@ -104,11 +105,14 @@ const questionCategory = {
 };
 
 const listOfClass = ["mixed", "historical", "entertainment"];
+let headline="";
 
 homeContainer.addEventListener("click", (e) => {
   let parent = e.target.parentNode;
   let parentClass = parent.classList[0];
   if (listOfClass.includes(parentClass)) {
+    let titel= String(parentClass);
+    headline=titel.toUpperCase();
     if (count < amount - 1) {
       category = questionCategory[parentClass];
       getQuestions();
@@ -139,8 +143,8 @@ document.querySelector(".next").addEventListener("click", () => {
       if (count === len - 1) {
         document.querySelector(".sub").classList.remove("hidden");
         document.querySelector(".sub").classList.add("buttonEntry");
-        document.querySelector(".next").style.pointerEvents="none";
-        document.querySelector(".next").style.opacity=0.5;
+        document.querySelector(".next").style.pointerEvents = "none";
+        document.querySelector(".next").style.opacity = 0.5;
       }
     }
     //increase progress
@@ -204,17 +208,18 @@ questionsContainer.addEventListener("click", (e) => {
 });
 
 const resetQuiz = () => {
-  optionClick=false;
+  optionClick = false;
   count = 0;
   index = "";
   increaseWidth = 1;
   widthProgress();
   document.querySelector(".score").style.opacity = 1;
+  document.querySelector(".score-hist").style.opacity = 1;
   score = 0;
   isAPI = true;
   questionsList.splice(0, questionsList.length);
-  document.querySelector(".next").style.pointerEvents="auto";
-  document.querySelector(".next").style.opacity=1;
+  document.querySelector(".next").style.pointerEvents = "auto";
+  document.querySelector(".next").style.opacity = 1;
 };
 
 const exit = (messageContainer) => {
@@ -230,6 +235,7 @@ const exit = (messageContainer) => {
     document.querySelector(".sub").classList.add("hidden");
     document.querySelector(messageContainer).classList.add("hidden");
   }, 300);
+  resetQuiz();
 };
 
 document.querySelector(".exitInfoContainer").addEventListener("click", (e) => {
@@ -257,7 +263,6 @@ document.querySelector(".exitInfoContainer").addEventListener("click", (e) => {
       .querySelector(".exitInfoContainer")
       .classList.remove("BoardAnimation");
     exit(".exitInfoContainer");
-    resetQuiz();
   }
 });
 
@@ -274,22 +279,58 @@ document.querySelector(".sub").addEventListener("click", () => {
   }
 });
 
+const getDate=()=>{
+  let currentDate=new Date();
+  let date=currentDate.getDate();
+  let month=currentDate.getMonth()+1;
+  let year=currentDate.getFullYear();
+  let today=`${date}-${month}-${year}`;
+  return today;
+}
+
+const addHistory=(heading, correctCount,today)=>{
+  const hist=document.createElement('div');
+  hist.classList.add("hist");
+  hist.textContent=heading;
+  const date=document.createElement('h3');
+  date.textContent=today;
+  const point=document.createElement('div');
+  point.classList.add('gainScore');
+  point.textContent=`+${correctCount}`;
+  hist.appendChild(date);
+  hist.appendChild(point);
+  document.querySelector('.scroll').textContent='';
+  document.querySelector('.scroll').appendChild(hist);
+}
+
+const saveHist=(heading,correctCount)=>{
+  let history=JSON.parse(localStorage.getItem('setHist'))||[];
+  const newEntry={
+    heading,correctCount,date:getDate()
+  };
+  history.push(newEntry);
+  localStorage.setItem('setHist',JSON.stringify(history));
+};
+
 document.querySelector(".scoreBoard").addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     document.querySelector(".scoreBoard").classList.add("BoardAnimationExit");
     document.querySelector(".scoreBoard").classList.remove("BoardAnimation");
-    exit(".scoreBoard");
     let totalScore = Number(document.querySelector(".value").textContent);
     totalScore += score;
     totalScore = String(totalScore);
-    localStorage.setItem("score", JSON.stringify(totalScore));
+    localStorage.setItem("point", JSON.stringify(totalScore));
     document.querySelector(".value").textContent = totalScore;
-    resetQuiz();
+    saveHist(headline,score);
+    exit(".scoreBoard");
+    window.location.reload();
   }
 });
 
 window.addEventListener("load", () => {
-  let totalScores = JSON.parse(localStorage.getItem("score")) || 0;
+  let totalScores = JSON.parse(localStorage.getItem("point")) || 0;
+  let history = JSON.parse(localStorage.getItem("setHist")) || [];
+  history.forEach(entry => addHistory(entry.heading, entry.correctCount, entry.date));
   document.querySelector(".value").textContent = totalScores;
   isAPI = true;
   if (questionsList.length > 0) {
@@ -322,3 +363,22 @@ const createRandomStar = () => {
 for (let i = 0; i < 40; i++) {
   createRandomStar();
 }
+
+const histContainer = document.querySelector(".histContainer");
+document.querySelector(".score-hist").addEventListener("click", () => {
+  histContainer.classList.remove("hidden");
+  histContainer.classList.add("animationEntry");
+  setTimeout(() => {
+    histContainer.classList.remove("animationEntry");
+  }, 300);
+});
+
+histContainer.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    histContainer.classList.add("animationExit");
+    setTimeout(() => {
+      histContainer.classList.add("hidden");
+      histContainer.classList.remove("animationExit");
+    }, 300);
+  }
+});
