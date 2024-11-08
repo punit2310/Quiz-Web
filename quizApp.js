@@ -325,7 +325,7 @@ document.querySelector(".scoreBoard").addEventListener("click", (e) => {
     document.querySelector(".value").textContent = totalScore;
     let heading = localStorage.getItem("title");
     saveHist(heading, score);
-    window.location.reload();
+    addHistory(heading,score,getDate());
     exit(".scoreBoard");
   }
 });
@@ -345,7 +345,7 @@ window.addEventListener("load", () => {
 
 const createRandomStar = () => {
   let topRand = Math.floor(Math.random() * 90);
-  let leftRand = Math.floor(Math.random() * 210);
+  let leftRand = Math.floor(Math.random() * 90);
   let fontSizeRand = Math.floor(Math.random() * 5);
   const colors = [
     "white",
@@ -365,7 +365,7 @@ const createRandomStar = () => {
   document.body.appendChild(star);
 };
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 20; i++) {
   createRandomStar();
 }
 
