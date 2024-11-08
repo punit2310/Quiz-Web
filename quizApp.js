@@ -344,7 +344,7 @@ window.addEventListener("load", () => {
 });
 
 const createRandomStar = () => {
-  let topRand = Math.floor(Math.random() * 90);
+  let topRand = Math.floor(Math.random() * 210);
   let leftRand = Math.floor(Math.random() * 90);
   let fontSizeRand = Math.floor(Math.random() * 5);
   const colors = [
@@ -365,7 +365,7 @@ const createRandomStar = () => {
   document.body.appendChild(star);
 };
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 40; i++) {
   createRandomStar();
 }
 
